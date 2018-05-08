@@ -13,6 +13,18 @@ use SilverStripe\Versioned\Versioned;
 
 /**
  * Class BaseElementObject.
+ *
+ * @property string $Name
+ * @property string $Title
+ * @property string $Content
+ *
+ * @property int $ImageID
+ * @property int $ElementLinkID
+ *
+ * @method Image Image()
+ * @method Link ElementLink()
+ *
+ * @mixin Versioned
  */
 class BaseElementObject extends DataObject
 {
@@ -148,7 +160,7 @@ class BaseElementObject extends DataObject
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      * @return boolean
      */
     public function canView($member = null)
@@ -162,13 +174,13 @@ class BaseElementObject extends DataObject
             return $page->canView($member);
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      *
      * @return boolean
      */
@@ -183,7 +195,7 @@ class BaseElementObject extends DataObject
             return $page->canEdit($member);
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 
     /**
@@ -193,7 +205,7 @@ class BaseElementObject extends DataObject
      * element is not published, then it can be deleted by someone who doesn't
      * have publishing permissions.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      *
      * @return boolean
      */
@@ -208,13 +220,13 @@ class BaseElementObject extends DataObject
             return $page->canArchive($member);
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      * @param array $context
      *
      * @return boolean
@@ -226,6 +238,6 @@ class BaseElementObject extends DataObject
             return $extended;
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 }

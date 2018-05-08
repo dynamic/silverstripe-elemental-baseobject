@@ -54,7 +54,7 @@ class BaseElementObjectTest extends SapphireTest
         $this->assertTrue($object->canView($siteowner));
 
         $member = $this->objFromFixture(Member::class, 'default');
-        $this->assertNull($object->canView($member));
+        $this->assertFalse($object->canView($member));
     }
 
     /**
@@ -71,7 +71,7 @@ class BaseElementObjectTest extends SapphireTest
         $this->assertTrue($object->canEdit($siteowner));
 
         $member = $this->objFromFixture(Member::class, 'default');
-        $this->assertNull($object->canEdit($member));
+        $this->assertFalse($object->canEdit($member));
     }
 
     /**
@@ -88,7 +88,7 @@ class BaseElementObjectTest extends SapphireTest
         $this->assertTrue($object->canDelete($siteowner));
 
         $member = $this->objFromFixture(Member::class, 'default');
-        $this->assertNull($object->canDelete($member));
+        $this->assertFalse($object->canDelete($member));
     }
 
     /**
@@ -105,6 +105,6 @@ class BaseElementObjectTest extends SapphireTest
         $this->assertTrue($object->canCreate($siteowner));
 
         $member = $this->objFromFixture(Member::class, 'default');
-        $this->assertNull($object->canCreate($member));
+        $this->assertFalse($object->canCreate($member));
     }
 }
