@@ -121,15 +121,13 @@ class BaseElementObject extends DataObject
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription('Optional. Display an image with this feature.')
-                ->setFolderName('Uploads/Elements/Objects')
-            ;
+                ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
             $fields->dataFieldByName('Content')
                 ->setTitle('Description')
                 ->setDescription('Optional. Set a description for this feature.')
-                ->setRows(8)
-            ;
+                ->setRows(8);
         });
 
         return parent::getCMSFields();

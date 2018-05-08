@@ -3,7 +3,6 @@
 namespace Dynamic\BaseObject\Tests;
 
 use Dynamic\BaseObject\Model\BaseElementObject;
-use Dynamic\Elements\Model\PromoObject;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Forms\FieldList;
