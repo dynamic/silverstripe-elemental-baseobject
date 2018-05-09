@@ -5,6 +5,8 @@ namespace Dynamic\BaseObject\Model;
 use Sheadawson\Linkable\Forms\LinkField;
 use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationResult;
@@ -148,11 +150,11 @@ class BaseElementObject extends DataObject
     }
 
     /**
-     * @return null
+     * @return SiteTree|null
      */
     public function getPage()
     {
-        return null;
+        return Director::get_current_page() instanceof SiteTree ? Director::get_current_page() : null;
     }
 
     /**

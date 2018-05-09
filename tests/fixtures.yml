@@ -44,3 +44,7 @@ SilverStripe\Security\Member:
     Surname: "Member"
     Email: "user"
     Password: "user"
+
+SilverStripe\CMS\Model\SiteTree:
+  home:
+    Title: "Home Page"
