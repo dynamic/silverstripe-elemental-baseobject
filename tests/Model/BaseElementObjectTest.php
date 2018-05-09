@@ -55,7 +55,7 @@ class BaseElementObjectTest extends SapphireTest
         /** @var BaseElementObject $object */
         $object = Injector::inst()->create(BaseElementObject::class);
         $this->assertNull($object->getPage());
-        
+
         $request = new HTTPRequest('GET', '/');
         $session = new Session([]);
         $request->setSession($session);
@@ -69,6 +69,9 @@ class BaseElementObjectTest extends SapphireTest
         $page = $this->objFromFixture(SiteTree::class, 'home');
         Director::set_current_page($page);
         $this->assertInstanceOf(SiteTree::class, $object->getPage());
+
+        Director::set_current_page(null);
+        $controller->popCurrent();
     }
 
     /**
