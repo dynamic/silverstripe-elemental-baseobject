@@ -5,6 +5,8 @@ namespace Dynamic\BaseObject\Model;
 use Sheadawson\Linkable\Forms\LinkField;
 use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationResult;
@@ -13,6 +15,18 @@ use SilverStripe\Versioned\Versioned;
 
 /**
  * Class BaseElementObject.
+ *
+ * @property string $Name
+ * @property string $Title
+ * @property string $Content
+ *
+ * @property int $ImageID
+ * @property int $ElementLinkID
+ *
+ * @method Image Image()
+ * @method Link ElementLink()
+ *
+ * @mixin Versioned
  */
 class BaseElementObject extends DataObject
 {
@@ -109,15 +123,13 @@ class BaseElementObject extends DataObject
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription('Optional. Display an image with this feature.')
-                ->setFolderName('Uploads/Elements/Objects')
-            ;
+                ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
             $fields->dataFieldByName('Content')
                 ->setTitle('Description')
                 ->setDescription('Optional. Set a description for this feature.')
-                ->setRows(8)
-            ;
+                ->setRows(8);
         });
 
         return parent::getCMSFields();
@@ -138,17 +150,19 @@ class BaseElementObject extends DataObject
     }
 
     /**
-     * @return null
+     * @return SiteTree|null
      */
     public function getPage()
     {
-        return null;
+        $page = Director::get_current_page();
+        // because $page can be a SiteTree or Controller
+        return $page instanceof SiteTree ? $page : null;
     }
 
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      * @return boolean
      */
     public function canView($member = null)
@@ -162,13 +176,13 @@ class BaseElementObject extends DataObject
             return $page->canView($member);
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      *
      * @return boolean
      */
@@ -183,7 +197,7 @@ class BaseElementObject extends DataObject
             return $page->canEdit($member);
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 
     /**
@@ -193,7 +207,7 @@ class BaseElementObject extends DataObject
      * element is not published, then it can be deleted by someone who doesn't
      * have publishing permissions.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      *
      * @return boolean
      */
@@ -208,13 +222,13 @@ class BaseElementObject extends DataObject
             return $page->canArchive($member);
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param Member $member
+     * @param \SilverStripe\Security\Member|null $member
      * @param array $context
      *
      * @return boolean
@@ -226,6 +240,6 @@ class BaseElementObject extends DataObject
             return $extended;
         }
 
-        return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
+        return Permission::check('CMS_ACCESS', 'any', $member);
     }
 }
