@@ -5,7 +5,10 @@ namespace Dynamic\BaseObject\Tests;
 use Dynamic\BaseObject\Model\BaseElementObject;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Control\Session;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Forms\FieldList;
@@ -52,15 +55,20 @@ class BaseElementObjectTest extends SapphireTest
         /** @var BaseElementObject $object */
         $object = Injector::inst()->create(BaseElementObject::class);
         $this->assertNull($object->getPage());
+        
+        $request = new HTTPRequest('GET', '/');
+        $session = new Session([]);
+        $request->setSession($session);
+        /** @var ContentController $controller */
+        $controller = ContentController::create();
+        $controller->setRequest($request);
+        $controller->pushCurrent();
+        $this->assertNull($object->getPage());
 
         /** @var SiteTree $page */
         $page = $this->objFromFixture(SiteTree::class, 'home');
         Director::set_current_page($page);
         $this->assertInstanceOf(SiteTree::class, $object->getPage());
-
-        $controller = new ContentController();
-        Director::set_current_page($controller);
-        $this->assertNull($object->getPage());
     }
 
     /**

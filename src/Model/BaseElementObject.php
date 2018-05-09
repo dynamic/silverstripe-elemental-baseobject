@@ -154,7 +154,9 @@ class BaseElementObject extends DataObject
      */
     public function getPage()
     {
-        return Director::get_current_page() instanceof SiteTree ? Director::get_current_page() : null;
+        $page = Director::get_current_page();
+        // because $page can be a SiteTree or Controller
+        return $page instanceof SiteTree ? $page : null;
     }
 
     /**
