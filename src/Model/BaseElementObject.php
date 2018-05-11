@@ -2,12 +2,16 @@
 
 namespace Dynamic\BaseObject\Model;
 
+use DNADesign\Elemental\Forms\TextCheckboxGroupField;
+use DNADesign\Elemental\Models\BaseElement;
 use Sheadawson\Linkable\Forms\LinkField;
 use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Security\Permission;
@@ -16,8 +20,8 @@ use SilverStripe\Versioned\Versioned;
 /**
  * Class BaseElementObject.
  *
- * @property string $Name
  * @property string $Title
+ * @property booelan $ShowTitle
  * @property string $Content
  *
  * @property int $ImageID
@@ -34,8 +38,8 @@ class BaseElementObject extends DataObject
      * @var array
      */
     private static $db = array(
-        'Name' => 'Varchar(255)',
         'Title' => 'Varchar(255)',
+        'ShowTitle' => 'Boolean',
         'Content' => 'HTMLText',
     );
 
@@ -104,6 +108,7 @@ class BaseElementObject extends DataObject
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function ($fields) {
+            /** @var FieldList $fields */
             $fields->replaceField(
                 'ElementLinkID',
                 LinkField::create('ElementLinkID')
@@ -117,9 +122,16 @@ class BaseElementObject extends DataObject
                 'Sort',
             ));
 
-            $fields->dataFieldByName('Name')->setDescription('Required. For internal reference only');
-
-            $fields->dataFieldByName('Title')->setDescription('Optional. Display a Title with this feature.');
+            // Add a combined field for "Title" and "Displayed" checkbox in a Bootstrap input group
+            $fields->removeByName('ShowTitle');
+            $fields->replaceField(
+                'Title',
+                TextCheckboxGroupField::create(
+                    TextField::create('Title', _t(BaseElement::class . '.TitleLabel', 'Title (displayed if checked)')),
+                    CheckboxField::create('ShowTitle', _t(BaseElement::class . '.ShowTitleLabel', 'Displayed'))
+                )->setName('TitleAndDisplayed')
+            );
+            // $fields->dataFieldByName('Title')->setDescription('Optional. Display a Title with this feature.');
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription('Optional. Display an image with this feature.')
@@ -133,20 +145,6 @@ class BaseElementObject extends DataObject
         });
 
         return parent::getCMSFields();
-    }
-
-    /**
-     * @return ValidationResult
-     */
-    public function validate()
-    {
-        $result = parent::validate();
-
-        if (!$this->Name) {
-            $result->addError('Name is required before you can save');
-        }
-
-        return $result;
     }
 
     /**
