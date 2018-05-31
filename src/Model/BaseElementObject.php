@@ -72,9 +72,15 @@ class BaseElementObject extends DataObject
      * @var array
      */
     private static $searchable_fields = array(
-        'Name' => 'Name',
-        'Title' => 'Headline',
-        'Content' => 'Description',
+        'Title' => array(
+            'title' => 'Headline',
+        ),
+        'Name' => array(
+            'title' => 'Name',
+        ),
+        'Content' => array(
+            'title' => 'Description',
+        ),
     );
 
     /**
