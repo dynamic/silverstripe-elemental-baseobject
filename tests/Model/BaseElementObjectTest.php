@@ -35,21 +35,6 @@ class BaseElementObjectTest extends SapphireTest
     /**
      *
      */
-    public function testValidateName()
-    {
-        /** @var BaseElementObject $object */
-        $object = Injector::inst()->create(BaseElementObject::class);
-        $valid = $object->validate()->isValid();
-        $this->assertFalse($valid);
-
-        $object->Name = 'Title';
-        $valid = $object->validate()->isValid();
-        $this->assertTrue($valid);
-    }
-
-    /**
-     *
-     */
     public function testGetPage()
     {
         /** @var BaseElementObject $object */
