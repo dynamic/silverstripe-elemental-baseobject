@@ -61,14 +61,13 @@ class BaseElementObject extends DataObject
     /**
      * @var string
      */
-    private static $default_sort = 'Name ASC';
+    private static $default_sort = 'Title ASC';
 
     /**
      * @var array
      */
     private static $summary_fields = array(
         'Image.CMSThumbnail' => 'Image',
-        'Name' => 'Name',
         'Title' => 'Title',
     );
 
@@ -78,9 +77,6 @@ class BaseElementObject extends DataObject
     private static $searchable_fields = array(
         'Title' => array(
             'title' => 'Headline',
-        ),
-        'Name' => array(
-            'title' => 'Name',
         ),
         'Content' => array(
             'title' => 'Description',
