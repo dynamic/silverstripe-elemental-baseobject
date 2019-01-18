@@ -15,7 +15,8 @@ a simple base dataobject to use with elements
 
 ## Requirements
 
-- SilverStripe 4.0
+* silverstripe/recipe-cms: ^4@dev
+* dnadesign/silverstripe-elemental: ^4@dev
 
 ## Installation
 
