@@ -128,12 +128,9 @@ class BaseElementObject extends DataObject
             $fields->removeByName('ShowTitle');
             $fields->replaceField(
                 'Title',
-                TextCheckboxGroupField::create(
-                    TextField::create('Title', _t(BaseElement::class . '.TitleLabel', 'Title (displayed if checked)')),
-                    CheckboxField::create('ShowTitle', _t(BaseElement::class . '.ShowTitleLabel', 'Displayed'))
-                )->setName('TitleAndDisplayed')
+                TextCheckboxGroupField::create()
+                    ->setName('Title')
             );
-            // $fields->dataFieldByName('Title')->setDescription('Optional. Display a Title with this feature.');
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription('Optional. Display an image with this feature.')
