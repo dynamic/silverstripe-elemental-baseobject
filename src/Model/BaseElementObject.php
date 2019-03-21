@@ -21,7 +21,7 @@ use SilverStripe\Versioned\Versioned;
  * Class BaseElementObject.
  *
  * @property string $Title
- * @property booelan $ShowTitle
+ * @property boolean $ShowTitle
  * @property string $Content
  *
  * @property int $ImageID
