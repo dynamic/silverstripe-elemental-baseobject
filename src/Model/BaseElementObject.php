@@ -4,8 +4,8 @@ namespace Dynamic\BaseObject\Model;
 
 use DNADesign\Elemental\Forms\TextCheckboxGroupField;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
+use gorriecoe\Link\Models\Link;
+use gorriecoe\LinkField\LinkField;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
@@ -124,7 +124,15 @@ class BaseElementObject extends DataObject
     {
         $this->beforeUpdateCMSFields(function ($fields) {
             /** @var FieldList $fields */
+            $fields->replaceField(
+                'ElementLinkID',
+                LinkField::create('ElementLink', 'Link', $this)
+                    ->setDescription('Optional. Add a call to action link.')
+            );
+            $fields->insertBefore($fields->dataFieldByName('ElementLink'), 'Content');
+
             $fields->removeByName(array(
+                'ElementFeaturesID',
                 'Sort',
             ));
 
