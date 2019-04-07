@@ -1,7 +1,7 @@
 en:
   Dynamic\BaseObject\Model\BaseElementObject:
     ContentLabel: 'Content'
-    ImageDescription: 'optional. Display an image with this feature.'
+    ImageDescription: 'optional. Display an image.'
     ImageLabel: 'Image'
     LinkDescription: 'optional. Add a call to action link.'
     LinkLabel: 'Link'

@@ -150,7 +150,7 @@ class BaseElementObject extends DataObject
 
             $image = $fields->dataFieldByName('Image')
                 ->setTitle($this->fieldLabel('Image'))
-                ->setDescription(_t(__CLASS__.'.ImageDescription','optional. Display an image with this feature.'))
+                ->setDescription(_t(__CLASS__.'.ImageDescription','optional. Display an image.'))
                 ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
