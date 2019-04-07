@@ -1,0 +1,13 @@
+en:
+  Dynamic\BaseObject\Model\BaseElementObject:
+    ContentLabel: 'Content'
+    ImageDescription: 'optional. Display an image.'
+    ImageLabel: 'Image'
+    LinkDescription: 'optional. Add a call to action link.'
+    LinkLabel: 'Link'
+    PLURALNAME: 'Base Element Objects'
+    PLURALS:
+      one: 'A Base Element Object'
+      other: '{count} Base Element Objects'
+    SINGULARNAME: 'Base Element Object'
+    TitleLabel: 'Title'
