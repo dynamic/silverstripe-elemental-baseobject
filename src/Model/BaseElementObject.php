@@ -113,9 +113,8 @@ class BaseElementObject extends DataObject
             /** @var FieldList $fields */
             $fields->replaceField(
                 'ElementLinkID',
-                LinkField::create('ElementLinkID')
-                    ->setTitle('Link')
-                    ->setDescription('Optional. Add a call to action link.')
+                LinkField::create('ElementLinkID', _t(__CLASS__.'.LinkLabel', 'Link'))
+                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.')
             );
             $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
 
@@ -129,17 +128,17 @@ class BaseElementObject extends DataObject
             $fields->replaceField(
                 'Title',
                 TextCheckboxGroupField::create()
-                    ->setName('Title')
+                    ->setName(_t(__CLASS__.'TitleLabel','Title'))
             );
 
             $image = $fields->dataFieldByName('Image')
-                ->setDescription('Optional. Display an image with this feature.')
+                ->setTitle(_t(__CLASS__.'.ImageLabel', 'Image'))
+                ->setDescription(_t(__CLASS__.'.ImageDescription','optional. Display an image with this feature.'))
                 ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
             $fields->dataFieldByName('Content')
-                ->setTitle('Description')
-                ->setDescription('Optional. Set a description for this feature.')
+                ->setTitle(_t(__CLASS__.'.ContentLabel', 'Content'))
                 ->setRows(8);
         });
 
