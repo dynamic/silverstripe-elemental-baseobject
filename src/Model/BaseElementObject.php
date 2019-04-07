@@ -114,7 +114,7 @@ class BaseElementObject extends DataObject
             $fields->replaceField(
                 'ElementLinkID',
                 LinkField::create('ElementLinkID', _t(__CLASS__.'.LinkLabel', 'Link'))
-                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.')
+                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.'))
             );
             $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
 
