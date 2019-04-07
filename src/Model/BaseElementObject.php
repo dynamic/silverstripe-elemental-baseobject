@@ -148,7 +148,7 @@ class BaseElementObject extends DataObject
             $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
 
             $image = $fields->dataFieldByName('Image')
-                ->setDescription(_t(__CLASS__.'.ImageDescription','optional. Display an image.'))
+                ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'))
                 ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
