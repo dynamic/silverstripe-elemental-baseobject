@@ -103,6 +103,23 @@ class BaseElementObject extends DataObject
     private static $table_name = 'BaseElementObject';
 
     /**
+     * @param bool $includerelations
+     * @return array
+     */
+    public function fieldLabels($includerelations = true)
+    {
+        $labels = parent::fieldLabels($includerelations);
+
+        $labels['Title'] = _t(__CLASS__ . '.TitleLabel', 'Title');
+        $labels['ElementLinkID'] = _t(__CLASS__ . '.LinkLabel', 'Link');
+        $labels['Image'] = _t(__CLASS__ . '.ImageLabel', 'Image');
+        $labels['Image.CMSThumbnail'] = _t(__CLASS__ . '.ImageLabel', 'Image');
+        $labels['Content'] = _t(__CLASS__. '.ContentLabel', 'Content');
+
+        return $labels;
+    }
+
+    /**
      * @return FieldList
      *
      * @throws \Exception
@@ -113,7 +130,7 @@ class BaseElementObject extends DataObject
             /** @var FieldList $fields */
             $fields->replaceField(
                 'ElementLinkID',
-                LinkField::create('ElementLinkID', _t(__CLASS__.'.LinkLabel', 'Link'))
+                LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
                     ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.'))
             );
             $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
@@ -128,17 +145,17 @@ class BaseElementObject extends DataObject
             $fields->replaceField(
                 'Title',
                 TextCheckboxGroupField::create()
-                    ->setName(_t(__CLASS__.'TitleLabel','Title'))
+                    ->setName($this->fieldLabel('Title'))
             );
 
             $image = $fields->dataFieldByName('Image')
-                ->setTitle(_t(__CLASS__.'.ImageLabel', 'Image'))
+                ->setTitle($this->fieldLabel('Image'))
                 ->setDescription(_t(__CLASS__.'.ImageDescription','optional. Display an image with this feature.'))
                 ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
             $fields->dataFieldByName('Content')
-                ->setTitle(_t(__CLASS__.'.ContentLabel', 'Content'))
+                ->setTitle($this->fieldLabel('Content'))
                 ->setRows(8);
         });
 
