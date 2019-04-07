@@ -124,13 +124,6 @@ class BaseElementObject extends DataObject
     {
         $this->beforeUpdateCMSFields(function ($fields) {
             /** @var FieldList $fields */
-            $fields->replaceField(
-                'ElementLinkID',
-                LinkField::create('ElementLink', $this->fieldLabel('Link'), $this)
-                    ->setDescription(_t(__CLASS__ . '.LinkLabel', 'optional. Add a call to action link.'))
-            );
-            $fields->insertBefore($fields->dataFieldByName('ElementLink'), 'Content');
-
             $fields->removeByName(array(
                 'ElementFeaturesID',
                 'Sort',
@@ -146,10 +139,10 @@ class BaseElementObject extends DataObject
 
             $fields->replaceField(
                 'ElementLinkID',
-                LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
-                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.'))
+                LinkField::create('ElementLink', $this->fieldLabel('Link'), $this)
+                    ->setDescription(_t(__CLASS__ . '.LinkLabel', 'optional. Add a call to action link.'))
             );
-            $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
+            $fields->insertBefore($fields->dataFieldByName('ElementLink'), 'Content');
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'))
