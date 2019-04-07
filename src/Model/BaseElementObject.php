@@ -107,7 +107,7 @@ class BaseElementObject extends DataObject
         $labels = parent::fieldLabels($includerelations);
 
         $labels['Title'] = _t(__CLASS__ . '.TitleLabel', 'Title');
-        $labels['ElementLinkID'] = _t(__CLASS__ . '.LinkLabel', 'Link');
+        $labels['ElementLink'] = _t(__CLASS__ . '.LinkLabel', 'Link');
         $labels['Image'] = _t(__CLASS__ . '.ImageLabel', 'Image');
         $labels['Image.CMSThumbnail'] = _t(__CLASS__ . '.ImageLabel', 'Image');
         $labels['Content'] = _t(__CLASS__. '.ContentLabel', 'Content');
@@ -139,8 +139,8 @@ class BaseElementObject extends DataObject
 
             $fields->replaceField(
                 'ElementLinkID',
-                LinkField::create('ElementLink', $this->fieldLabel('Link'), $this)
-                    ->setDescription(_t(__CLASS__ . '.LinkLabel', 'optional. Add a call to action link.'))
+                LinkField::create('ElementLink', $this->fieldLabel('ElementLink'), $this)
+                    ->setDescription(_t(__CLASS__ . '.LinkDescription', 'optional. Add a call to action link.'))
             );
             $fields->insertBefore($fields->dataFieldByName('ElementLink'), 'Content');
 
