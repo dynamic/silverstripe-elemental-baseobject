@@ -128,15 +128,7 @@ class BaseElementObject extends DataObject
     {
         $this->beforeUpdateCMSFields(function ($fields) {
             /** @var FieldList $fields */
-            $fields->replaceField(
-                'ElementLinkID',
-                LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
-                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.'))
-            );
-            $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
-
             $fields->removeByName(array(
-                'ElementFeaturesID',
                 'Sort',
             ));
 
@@ -148,14 +140,19 @@ class BaseElementObject extends DataObject
                     ->setName($this->fieldLabel('Title'))
             );
 
+            $fields->replaceField(
+                'ElementLinkID',
+                LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
+                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.'))
+            );
+            $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
+
             $image = $fields->dataFieldByName('Image')
-                ->setTitle($this->fieldLabel('Image'))
                 ->setDescription(_t(__CLASS__.'.ImageDescription','optional. Display an image.'))
                 ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore($image, 'Content');
 
             $fields->dataFieldByName('Content')
-                ->setTitle($this->fieldLabel('Content'))
                 ->setRows(8);
         });
 
