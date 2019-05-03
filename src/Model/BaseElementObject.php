@@ -67,20 +67,16 @@ class BaseElementObject extends DataObject
      * @var array
      */
     private static $summary_fields = array(
-        'Image.CMSThumbnail' => 'Image',
-        'Title' => 'Title',
+        'Image.CMSThumbnail',
+        'Title',
     );
 
     /**
      * @var array
      */
     private static $searchable_fields = array(
-        'Title' => array(
-            'title' => 'Headline',
-        ),
-        'Content' => array(
-            'title' => 'Description',
-        ),
+        'Title',
+        'Content',
     );
 
     /**
