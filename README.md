@@ -34,3 +34,9 @@ A base DataObject used in the following Elemental content blocks:
 ## Documentation
 
 See the [docs/en](docs/en/index.md) folder.
+
+## Translations
+
+The translations for this project are managed via [Transifex](https://www.transifex.com/dynamicagency/silverstripe-elemental-baseobject/)
+and are updated automatically during the release process. To contribute, please head to the link above and get
+translating!
