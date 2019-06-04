@@ -1,6 +1,15 @@
 # Change Log
 
-## [2.0.2](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/2.0.2) (2019-03-20)
+## [2.0.3](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/2.0.3) (2019-06-03)
+[Full Changelog](https://github.com/dynamic/silverstripe-elemental-baseobject/compare/2.0.2...2.0.3)
+
+**Merged pull requests:**
+
+- transifex setup [\#19](https://github.com/dynamic/silverstripe-elemental-baseobject/pull/19) ([jsirish](https://github.com/jsirish))
+- BaseElementObject - remove titles on summary and searchable fields [\#18](https://github.com/dynamic/silverstripe-elemental-baseobject/pull/18) ([jsirish](https://github.com/jsirish))
+- i18n implementation [\#17](https://github.com/dynamic/silverstripe-elemental-baseobject/pull/17) ([jsirish](https://github.com/jsirish))
+
+## [2.0.2](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/2.0.2) (2019-03-21)
 [Full Changelog](https://github.com/dynamic/silverstripe-elemental-baseobject/compare/2.0.1...2.0.2)
 
 **Closed issues:**
