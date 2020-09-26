@@ -14,10 +14,10 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "silverstripe/recipe-cms": "^1@dev || ^4@dev",
-        "silverstripe/vendor-plugin": "^1@dev",
-        "dnadesign/silverstripe-elemental": "^2@dev || ^3@dev",
-        "sheadawson/silverstripe-linkable": "^2@dev"
+        "silverstripe/recipe-cms": "^1.0 || ^4.0",
+        "silverstripe/vendor-plugin": "^1.0",
+        "dnadesign/silverstripe-elemental": "^2.0 || ^3.0",
+        "sheadawson/silverstripe-linkable": "^2.0"
     },
     "require-dev": {
         "phpunit/PHPUnit": "^5.7",
