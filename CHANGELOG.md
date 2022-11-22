@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.0-alpha1](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/3.0.0-alpha1) (2022-22-21)
+* CI initial GItHub Action by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/24
+* refactor - remove Linkable in favor of SilverStripe Link by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/16
+
+
+**Full Changelog**: https://github.com/dynamic/silverstripe-elemental-baseobject/compare/2.1.0...3.0.0-alpha1
+
 ## [2.1.0](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/2.1.0) (2020-01-07)
 
 [Full Changelog](https://github.com/dynamic/silverstripe-elemental-baseobject/compare/2.0.3...2.1.0)
