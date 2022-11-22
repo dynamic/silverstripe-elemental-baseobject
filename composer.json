@@ -24,6 +24,9 @@
     "require-dev": {
         "silverstripe/recipe-testing": "^2"
     },
+    "suggest": {
+        "dynamic/silverstripe-link-migrator": "Migrate Linkable Link records to SilverStripe Link"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
