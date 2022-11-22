@@ -18,11 +18,14 @@
     ],
     "require": {
         "dnadesign/silverstripe-elemental": "^4.0",
-        "dynamic/silverstripe-linkable": "^1.0",
+        "gorriecoe/silverstripe-linkfield": "^1.0",
         "silverstripe/vendor-plugin": "^1.0"
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^2"
+    },
+    "suggest": {
+        "dynamic/silverstripe-link-migrator": "Migrate Linkable Link records to SilverStripe Link"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

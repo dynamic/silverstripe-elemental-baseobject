@@ -4,8 +4,8 @@ namespace Dynamic\BaseObject\Model;
 
 use DNADesign\Elemental\Forms\TextCheckboxGroupField;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
+use gorriecoe\Link\Models\Link;
+use gorriecoe\LinkField\LinkField;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
@@ -107,7 +107,7 @@ class BaseElementObject extends DataObject
         $labels = parent::fieldLabels($includerelations);
 
         $labels['Title'] = _t(__CLASS__ . '.TitleLabel', 'Title');
-        $labels['ElementLinkID'] = _t(__CLASS__ . '.LinkLabel', 'Link');
+        $labels['ElementLink'] = _t(__CLASS__ . '.LinkLabel', 'Link');
         $labels['Image'] = _t(__CLASS__ . '.ImageLabel', 'Image');
         $labels['Image.CMSThumbnail'] = _t(__CLASS__ . '.ImageLabel', 'Image');
         $labels['Content'] = _t(__CLASS__. '.ContentLabel', 'Content');
@@ -125,6 +125,7 @@ class BaseElementObject extends DataObject
         $this->beforeUpdateCMSFields(function ($fields) {
             /** @var FieldList $fields */
             $fields->removeByName(array(
+                'ElementFeaturesID',
                 'Sort',
             ));
 
@@ -138,10 +139,10 @@ class BaseElementObject extends DataObject
 
             $fields->replaceField(
                 'ElementLinkID',
-                LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
-                    ->setDescription(_t(__CLASS__.'.LinkDescription', 'optional. Add a call to action link.'))
+                LinkField::create('ElementLink', $this->fieldLabel('ElementLink'), $this)
+                    ->setDescription(_t(__CLASS__ . '.LinkDescription', 'optional. Add a call to action link.'))
             );
-            $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
+            $fields->insertBefore($fields->dataFieldByName('ElementLink'), 'Content');
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'))

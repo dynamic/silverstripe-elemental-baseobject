@@ -1,11 +1,8 @@
-# silverstripe-elemental-baseobject
+# Silverstripe Elemental Baseobject
 
 a simple base dataobject to use with elements
 
-[![Build Status](https://travis-ci.org/dynamic/silverstripe-elemental-baseobject.svg?branch=master)](https://travis-ci.org/dynamic/silverstripe-elemental-baseobject)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dynamic/silverstripe-elemental-baseobject/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-elemental-baseobject/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/dynamic/silverstripe-elemental-baseobject/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-elemental-baseobject/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/dynamic/silverstripe-elemental-baseobject/badges/build.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-elemental-baseobject/build-status/master)
+[![CI](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml/badge.svg)](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/dynamic/silverstripe-elemental-baseobject/branch/master/graph/badge.svg)](https://codecov.io/gh/dynamic/silverstripe-elemental-baseobject)
 
 [![Latest Stable Version](https://poser.pugx.org/dynamic/silverstripe-elemental-baseobject/v/stable)](https://packagist.org/packages/dynamic/silverstripe-elemental-baseobject)
@@ -15,8 +12,8 @@ a simple base dataobject to use with elements
 
 ## Requirements
 
-* silverstripe/recipe-cms: ^4@dev
-* dnadesign/silverstripe-elemental: ^4@dev
+* dnadesign/silverstripe-elemental: ^4.0
+* gorriecoe/silverstripe-linkfield: ^1.0
 
 ## Installation
 
@@ -25,6 +22,21 @@ a simple base dataobject to use with elements
 ## License
 
 See [License](license.md)
+
+## Upgrading from version 2
+
+BaseObject drops `sheadawson/silverstripe-linkable` usage in favor of `gorriecoe/silverstripe-linkfield`. To avoid data loss, install the `dynamic/silverstripe-link-migrator` module as follows:
+
+```markdown
+composer require dynamic/silverstripe-link-migrator
+```
+
+Then, run the task "Linkable to SilverStripe Link Migration" via `/dev/tasks`, or cli via:
+```markdown
+vendor/bin/sake dev/tasks/LinkableMigrationTask
+```
+
+This will populate all of the new Link fields with data from the old class.
 
 ## Example usage
 
@@ -50,17 +62,17 @@ translating!
  *  [Dynamic](http://www.dynamicagency.com) (<dev@dynamicagency.com>)
 
 ## Bugtracker
-Bugs are tracked in the issues section of this repository. Before submitting an issue please read over 
-existing issues to ensure yours is unique. 
- 
+Bugs are tracked in the issues section of this repository. Before submitting an issue please read over
+existing issues to ensure yours is unique.
+
 If the issue does look like a new bug:
- 
+
  - Create a new issue
- - Describe the steps required to reproduce your issue, and the expected outcome. Unit tests, screenshots 
+ - Describe the steps required to reproduce your issue, and the expected outcome. Unit tests, screenshots
  and screencasts can help here.
- - Describe your environment as detailed as possible: SilverStripe version, Browser, PHP version, 
+ - Describe your environment as detailed as possible: SilverStripe version, Browser, PHP version,
  Operating System, any installed SilverStripe modules.
- 
+
 Please report security issues to the module maintainers directly. Please don't file security issues in the bugtracker.
 
 ## Development and contribution
