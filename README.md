@@ -51,6 +51,14 @@ A base DataObject used in the following Elemental content blocks:
 
 See the [docs/en](docs/en/index.md) folder.
 
+## Getting more elements
+
+See [Elemental modules by Dynamic](https://github.com/orgs/dynamic/repositories?q=elemental&type=all&language=&sort=)
+
+## Configuration
+
+See [SilverStripe Elemental Configuration](https://github.com/dnadesign/silverstripe-elemental#configuration)
+
 ## Translations
 
 The translations for this project are managed via [Transifex](https://www.transifex.com/dynamicagency/silverstripe-elemental-baseobject/)
