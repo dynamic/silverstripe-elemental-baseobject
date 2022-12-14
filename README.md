@@ -21,7 +21,7 @@ a simple base dataobject to use with elements
 
 ## License
 
-See [License](license.md)
+See [License](LICENSE.md)
 
 ## Upgrading from version 2
 
@@ -38,18 +38,16 @@ vendor/bin/sake dev/tasks/LinkableMigrationTask
 
 This will populate all of the new Link fields with data from the old class.
 
-## Example usage
+## Usage
 
 A base DataObject used in the following Elemental content blocks:
 
 * [Accordion](https://github.com/dynamic/silverstripe-elemental-accordion)
-* [Features](https://github.com/dynamic/silverstripe-elemental-blocks)
-* [Photo Gallery](https://github.com/dynamic/silverstripe-elemental-blocks)
-* [Promos](https://github.com/dynamic/silverstripe-elemental-blocks)
-
-## Documentation
-
-See the [docs/en](docs/en/index.md) folder.
+* [Features](https://github.com/dynamic/silverstripe-elemental-features)
+* [Gallery](https://github.com/dynamic/silverstripe-elemental-gallery)
+* [Promos](https://github.com/dynamic/silverstripe-elemental-promos)
+* [Sponsors](https://github.com/dynamic/silverstripe-elemental-sponsors)
+* [Timeline](https://github.com/dynamic/silverstripe-elemental-timeline)
 
 ## Getting more elements
 
@@ -57,7 +55,7 @@ See [Elemental modules by Dynamic](https://github.com/orgs/dynamic/repositories?
 
 ## Configuration
 
-See [SilverStripe Elemental Configuration](https://github.com/dnadesign/silverstripe-elemental#configuration)
+See [SilverStripe Elemental Configuration](https://github.com/silverstripe/silverstripe-elemental#configuration)
 
 ## Translations
 
@@ -67,7 +65,7 @@ translating!
 
 ## Maintainers
 
- *  [Dynamic](http://www.dynamicagency.com) (<dev@dynamicagency.com>)
+ *  [Dynamic](https://www.dynamicagency.com) (<dev@dynamicagency.com>)
 
 ## Bugtracker
 Bugs are tracked in the issues section of this repository. Before submitting an issue please read over
