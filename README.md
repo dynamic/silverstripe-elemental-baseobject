@@ -38,18 +38,15 @@ vendor/bin/sake dev/tasks/LinkableMigrationTask
 
 This will populate all of the new Link fields with data from the old class.
 
-## Example usage
+## Usage
 
 A base DataObject used in the following Elemental content blocks:
 
 * [Accordion](https://github.com/dynamic/silverstripe-elemental-accordion)
-* [Features](https://github.com/dynamic/silverstripe-elemental-blocks)
-* [Photo Gallery](https://github.com/dynamic/silverstripe-elemental-blocks)
-* [Promos](https://github.com/dynamic/silverstripe-elemental-blocks)
-
-## Documentation
-
-See the [docs/en](docs/en/index.md) folder.
+* [Features](https://github.com/dynamic/silverstripe-elemental-features)
+* [Gallery](https://github.com/dynamic/silverstripe-elemental-gallery)
+* [Promos](https://github.com/dynamic/silverstripe-elemental-promos)
+* [Sponsors](https://github.com/dynamic/silverstripe-elemental-sponsors)
 
 ## Getting more elements
 
