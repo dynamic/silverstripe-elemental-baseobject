@@ -21,7 +21,7 @@ a simple base dataobject to use with elements
 
 ## License
 
-See [License](license.md)
+See [License](LICENSE.md)
 
 ## Upgrading from version 2
 
@@ -65,7 +65,7 @@ translating!
 
 ## Maintainers
 
- *  [Dynamic](http://www.dynamicagency.com) (<dev@dynamicagency.com>)
+ *  [Dynamic](https://www.dynamicagency.com) (<dev@dynamicagency.com>)
 
 ## Bugtracker
 Bugs are tracked in the issues section of this repository. Before submitting an issue please read over
