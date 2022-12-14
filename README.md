@@ -55,7 +55,7 @@ See [Elemental modules by Dynamic](https://github.com/orgs/dynamic/repositories?
 
 ## Configuration
 
-See [SilverStripe Elemental Configuration](https://github.com/dnadesign/silverstripe-elemental#configuration)
+See [SilverStripe Elemental Configuration](https://github.com/silverstripe/silverstripe-elemental#configuration)
 
 ## Translations
 
