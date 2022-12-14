@@ -47,6 +47,7 @@ A base DataObject used in the following Elemental content blocks:
 * [Gallery](https://github.com/dynamic/silverstripe-elemental-gallery)
 * [Promos](https://github.com/dynamic/silverstripe-elemental-promos)
 * [Sponsors](https://github.com/dynamic/silverstripe-elemental-sponsors)
+* [Timeline](https://github.com/dynamic/silverstripe-elemental-timeline)
 
 ## Getting more elements
 
