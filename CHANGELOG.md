@@ -1,6 +1,15 @@
 # Changelog
 
-## [3.0.0-alpha1](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/3.0.0-alpha1) (2022-22-21)
+## [3.0.0](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/3.0.0) (2022-12-14)
+
+* CI initial GItHub Action by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/24
+* refactor - remove Linkable in favor of SilverStripe Link by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/16
+* CI migrate to Silverstripe GA workflow by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/25
+* README update, composer cleanup by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/26
+
+**Full Changelog**: https://github.com/dynamic/silverstripe-elemental-baseobject/compare/2.1.0...3.0.0
+
+## [3.0.0-alpha1](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/3.0.0-alpha1) (2022-11-21)
 * CI initial GItHub Action by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/24
 * refactor - remove Linkable in favor of SilverStripe Link by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/16
 
