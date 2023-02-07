@@ -134,8 +134,8 @@ class BaseElementObject extends DataObject
             $fields->replaceField(
                 'Title',
                 TextCheckboxGroupField::create()
-                    ->setName($this->fieldLabel('Title'))
-            );
+                    ->setName('Title')
+                    ->setTitle($this->fieldLabel('Title'))            );
 
             $fields->replaceField(
                 'ElementLinkID',
