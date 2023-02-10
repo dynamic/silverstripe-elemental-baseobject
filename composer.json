@@ -18,8 +18,8 @@
     ],
     "require": {
         "dnadesign/silverstripe-elemental": "^5",
-        "gorriecoe/silverstripe-linkfield": "^1",
         "gorriecoe/silverstripe-link": "dev-refactor/allowSS5 as 1.4.1",
+        "gorriecoe/silverstripe-linkfield": "^1",
         "silvershop/silverstripe-hasonefield": "dev-refactor/allowSS5 as 3.0.4",
         "silverstripe/framework": "^5",
         "symbiote/silverstripe-gridfieldextensions": "4.x-dev as 3.5.0",
@@ -27,6 +27,9 @@
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^3"
+    },
+    "suggest": {
+        "dynamic/silverstripe-link-migrator": "Migrate Linkable Link records to SilverStripe Link"
     },
     "repositories": [
         {
@@ -42,9 +45,6 @@
             "url": "git@github.com:jsirish/silverstripe-hasonefield.git"
         }
     ],
-    "suggest": {
-        "dynamic/silverstripe-link-migrator": "Migrate Linkable Link records to SilverStripe Link"
-    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
