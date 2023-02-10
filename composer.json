@@ -19,11 +19,18 @@
     "require": {
         "dnadesign/silverstripe-elemental": "^5",
         "gorriecoe/silverstripe-linkfield": "^1",
+        "gorriecoe/silverstripe-link": "dev-refactor/allowSS5 as 1.4.1",
         "silverstripe/framework": "^5"
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^3"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:jsirish/silverstripe-link.git"
+        }
+    ],
     "suggest": {
         "dynamic/silverstripe-link-migrator": "Migrate Linkable Link records to SilverStripe Link"
     },
