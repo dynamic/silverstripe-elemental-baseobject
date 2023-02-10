@@ -143,12 +143,12 @@ class BaseElementObject extends DataObject
                 LinkField::create('ElementLink', $this->fieldLabel('ElementLink'), $this)
                     ->setDescription(_t(__CLASS__ . '.LinkDescription', 'optional. Add a call to action link.'))
             );
-            $fields->insertBefore($fields->dataFieldByName('ElementLink'), 'Content');
+            $fields->insertBefore('Content', $fields->dataFieldByName('ElementLink'));
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'))
                 ->setFolderName('Uploads/Elements/Objects');
-            $fields->insertBefore($image, 'Content');
+            $fields->insertBefore('Content', $image);
 
             $fields->dataFieldByName('Content')
                 ->setRows(8);
