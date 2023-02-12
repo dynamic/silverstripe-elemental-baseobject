@@ -19,10 +19,9 @@
     "require": {
         "dnadesign/silverstripe-elemental": "^5",
         "gorriecoe/silverstripe-link": "dev-refactor/allowSS5 as 1.4.1",
-        "gorriecoe/silverstripe-linkfield": "^1",
+        "gorriecoe/silverstripe-linkfield": "dev-refactor/gridfieldextensions4 as 1.0.3",
         "silvershop/silverstripe-hasonefield": "3.x-dev",
         "silverstripe/framework": "^5",
-        "symbiote/silverstripe-gridfieldextensions": "4.x-dev as 3.5.0",
         "unclecheese/display-logic": "dev-refactor/allowSS5 as 2.0.5"
     },
     "require-dev": {
