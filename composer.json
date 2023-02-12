@@ -20,7 +20,7 @@
         "dnadesign/silverstripe-elemental": "^5",
         "gorriecoe/silverstripe-link": "dev-refactor/allowSS5 as 1.4.1",
         "gorriecoe/silverstripe-linkfield": "^1",
-        "silvershop/silverstripe-hasonefield": "dev-refactor/allowSS5 as 3.0.4",
+        "silvershop/silverstripe-hasonefield": "3.x-dev",
         "silverstripe/framework": "^5",
         "symbiote/silverstripe-gridfieldextensions": "4.x-dev as 3.5.0",
         "unclecheese/display-logic": "dev-refactor/allowSS5 as 2.0.5"
@@ -39,10 +39,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:jsirish/silverstripe-display-logic.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:jsirish/silverstripe-hasonefield.git"
         }
     ],
     "minimum-stability": "dev",
