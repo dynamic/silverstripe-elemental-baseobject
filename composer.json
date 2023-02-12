@@ -37,6 +37,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:jsirish/silverstripe-linkfield.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:jsirish/silverstripe-display-logic.git"
         }
     ],
