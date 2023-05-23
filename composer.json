@@ -21,7 +21,7 @@
         "gorriecoe/silverstripe-link": "dev-refactor/allowSS5 as 1.4.1",
         "gorriecoe/silverstripe-linkfield": "dev-refactor/gridfieldextensions4 as 1.0.3",
         "silvershop/silverstripe-hasonefield": "^3",
-        "silverstripe/framework": "^5.0",
+        "silverstripe/framework": "^5@stable",
         "unclecheese/display-logic": "^3"
     },
     "require-dev": {
