@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.0.0-beta1](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/4.0.0-beta1) (2023-06-29)
+
+* REFACTOR Silverstripe Link new minor version by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/33
+
+**Full Changelog**: https://github.com/dynamic/silverstripe-elemental-baseobject/compare/4.0.0-alpha1...4.0.0-beta1
+
+## [4.0.0-alpha1](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/4.0.0-alpha1) (2023-06-12)
+
+* BUGFIX adjust insertBefore argument order by @jsirish in #30
+* Refactor/allow elemental5 by @jsirish in #31
+
+**Full Changelog**: https://github.com/dynamic/silverstripe-elemental-baseobject/compare/3.0.0...4.0.0-alpha1
+
 ## [3.0.0](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/3.0.0) (2022-12-14)
 
 * CI initial GItHub Action by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/24
