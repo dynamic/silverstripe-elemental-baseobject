@@ -19,7 +19,7 @@
     "require": {
         "dnadesign/silverstripe-elemental": "^5",
         "gorriecoe/silverstripe-linkfield": "^1.1",
-        "silvershop/silverstripe-hasonefield": "4.0.0. as 3.1.0",
+        "silvershop/silverstripe-hasonefield": "^4",
         "silverstripe/framework": "^5",
         "unclecheese/display-logic": "^3"
     },
