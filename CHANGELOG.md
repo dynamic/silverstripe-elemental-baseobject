@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-beta2](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/4.0.0-beta2) (2023-08-18)
+
+* require hasonefield ^4 by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/35
+
+**Full Changelog**: https://github.com/dynamic/silverstripe-elemental-baseobject/compare/4.0.0-beta1...4.0.0-beta2
+
 ## [4.0.0-beta1](https://github.com/dynamic/silverstripe-elemental-baseobject/tree/4.0.0-beta1) (2023-06-29)
 
 * REFACTOR Silverstripe Link new minor version by @jsirish in https://github.com/dynamic/silverstripe-elemental-baseobject/pull/33
