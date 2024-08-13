@@ -13,7 +13,7 @@ a simple base dataobject to use with elements
 ## Requirements
 
 * dnadesign/silverstripe-elemental: ^5.0
-* gorriecoe/silverstripe-linkfield: ^1.0
+* silverstripe/linkfield: ^4.0
 
 ## Installation
 

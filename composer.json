@@ -18,17 +18,13 @@
     ],
     "require": {
         "dnadesign/silverstripe-elemental": "^5",
-        "gorriecoe/silverstripe-linkfield": "^1.1",
         "silvershop/silverstripe-hasonefield": "^4",
-        "silverstripe/framework": "^5",
+        "silverstripe/linkfield": "^4.0",
         "unclecheese/display-logic": "^3"
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^3",
         "silverstripe/frameworktest": "^1"
-    },
-    "suggest": {
-        "dynamic/silverstripe-link-migrator": "Migrate Linkable Link records to SilverStripe Link"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

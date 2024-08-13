@@ -2,20 +2,20 @@
 
 namespace Dynamic\BaseObject\Model;
 
-use DNADesign\Elemental\Forms\TextCheckboxGroupField;
-use DNADesign\Elemental\Models\BaseElement;
-use gorriecoe\Link\Models\Link;
-use gorriecoe\LinkField\LinkField;
 use SilverStripe\Assets\Image;
-use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Control\Director;
-use SilverStripe\Forms\CheckboxField;
+use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\ORM\DataObject;
-use SilverStripe\ORM\ValidationResult;
+use SilverStripe\Control\Director;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Security\Permission;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\ORM\ValidationResult;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
+use DNADesign\Elemental\Models\BaseElement;
+use DNADesign\Elemental\Forms\TextCheckboxGroupField;
 
 /**
  * Class BaseElementObject.
@@ -56,6 +56,7 @@ class BaseElementObject extends DataObject
      */
     private static $owns = array(
         'Image',
+        'ElementLink',
     );
 
     /**
