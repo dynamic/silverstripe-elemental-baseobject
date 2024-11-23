@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "dnadesign/silverstripe-elemental": "^5",
+        "dnadesign/silverstripe-elemental": "^6",
         "silvershop/silverstripe-hasonefield": "dev-silverstripe6",
         "silverstripe/linkfield": "^5.0",
         "unclecheese/display-logic": "dev-silverstripe6"
