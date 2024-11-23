@@ -31,6 +31,16 @@
         "phpstan/extension-installer": "^1.3",
         "silverstripe/frameworktest": "^2"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:muskie9/silverstripe-hasonefield.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:dynamic/silverstripe-display-logic.git"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
