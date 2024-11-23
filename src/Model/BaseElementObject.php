@@ -2,19 +2,17 @@
 
 namespace Dynamic\BaseObject\Model;
 
+use Exception;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TextField;
 use SilverStripe\Control\Director;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
 use SilverStripe\Versioned\Versioned;
-use SilverStripe\ORM\ValidationResult;
 use SilverStripe\LinkField\Models\Link;
 use SilverStripe\LinkField\Form\LinkField;
-use DNADesign\Elemental\Models\BaseElement;
 use DNADesign\Elemental\Forms\TextCheckboxGroupField;
 
 /**
@@ -37,53 +35,53 @@ class BaseElementObject extends DataObject
     /**
      * @var array
      */
-    private static $db = array(
+    private static array $db = [
         'Title' => 'Varchar(255)',
         'ShowTitle' => 'Boolean',
         'Content' => 'HTMLText',
-    );
+    ];
 
     /**
      * @var array
      */
-    private static $has_one = array(
+    private static array $has_one = [
         'Image' => Image::class,
         'ElementLink' => Link::class,
-    );
+    ];
 
     /**
      * @var array
      */
-    private static $owns = array(
+    private static array $owns = [
         'Image',
         'ElementLink',
-    );
+    ];
 
     /**
      * @var string
      */
-    private static $default_sort = 'Title ASC';
+    private static string $default_sort = 'Title ASC';
 
     /**
      * @var array
      */
-    private static $summary_fields = array(
+    private static array $summary_fields = [
         'Image.CMSThumbnail',
         'Title',
-    );
+    ];
 
     /**
      * @var array
      */
-    private static $searchable_fields = array(
+    private static array $searchable_fields = [
         'Title',
         'Content',
-    );
+    ];
 
     /**
      * @var array
      */
-    private static $extensions = [
+    private static array $extensions = [
         Versioned::class,
     ];
 
@@ -92,18 +90,18 @@ class BaseElementObject extends DataObject
      *
      * @var bool
      */
-    private static $versioned_gridfield_extensions = true;
+    private static bool $versioned_gridfield_extensions = true;
 
     /**
      * @var string
      */
-    private static $table_name = 'BaseElementObject';
+    private static string $table_name = 'BaseElementObject';
 
     /**
      * @param bool $includerelations
      * @return array
      */
-    public function fieldLabels($includerelations = true)
+    public function fieldLabels($includerelations = true): array
     {
         $labels = parent::fieldLabels($includerelations);
 
@@ -111,7 +109,7 @@ class BaseElementObject extends DataObject
         $labels['ElementLink'] = _t(__CLASS__ . '.LinkLabel', 'Link');
         $labels['Image'] = _t(__CLASS__ . '.ImageLabel', 'Image');
         $labels['Image.CMSThumbnail'] = _t(__CLASS__ . '.ImageLabel', 'Image');
-        $labels['Content'] = _t(__CLASS__. '.ContentLabel', 'Content');
+        $labels['Content'] = _t(__CLASS__ . '.ContentLabel', 'Content');
 
         return $labels;
     }
@@ -119,16 +117,16 @@ class BaseElementObject extends DataObject
     /**
      * @return FieldList
      *
-     * @throws \Exception
+     * @throws Exception
      */
-    public function getCMSFields()
+    public function getCMSFields(): FieldList
     {
         $this->beforeUpdateCMSFields(function ($fields) {
             /** @var FieldList $fields */
-            $fields->removeByName(array(
+            $fields->removeByName([
                 'ElementFeaturesID',
                 'Sort',
-            ));
+            ]);
 
             // Add a combined field for "Title" and "Displayed" checkbox in a Bootstrap input group
             $fields->removeByName('ShowTitle');
@@ -147,7 +145,7 @@ class BaseElementObject extends DataObject
             $fields->insertBefore('Content', $fields->dataFieldByName('ElementLink'));
 
             $image = $fields->dataFieldByName('Image')
-                ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'))
+                ->setDescription(_t(__CLASS__ . '.ImageDescription', 'optional. Display an image.'))
                 ->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore('Content', $image);
 
@@ -161,7 +159,7 @@ class BaseElementObject extends DataObject
     /**
      * @return SiteTree|null
      */
-    public function getPage()
+    public function getPage(): SiteTree|null
     {
         $page = Director::get_current_page();
         // because $page can be a SiteTree or Controller
@@ -171,10 +169,10 @@ class BaseElementObject extends DataObject
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param \SilverStripe\Security\Member|null $member
-     * @return boolean
+     * @param Member|null $member
+     * @return bool
      */
-    public function canView($member = null)
+    public function canView($member = null): bool
     {
         $extended = $this->extendedCan(__FUNCTION__, $member);
         if ($extended !== null) {
@@ -191,11 +189,11 @@ class BaseElementObject extends DataObject
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param \SilverStripe\Security\Member|null $member
+     * @param Member|null $member
      *
-     * @return boolean
+     * @return bool
      */
-    public function canEdit($member = null)
+    public function canEdit($member = null): bool
     {
         $extended = $this->extendedCan(__FUNCTION__, $member);
         if ($extended !== null) {
@@ -216,11 +214,11 @@ class BaseElementObject extends DataObject
      * element is not published, then it can be deleted by someone who doesn't
      * have publishing permissions.
      *
-     * @param \SilverStripe\Security\Member|null $member
+     * @param Member|null $member
      *
-     * @return boolean
+     * @return bool
      */
-    public function canDelete($member = null)
+    public function canDelete($member = null): bool
     {
         $extended = $this->extendedCan(__FUNCTION__, $member);
         if ($extended !== null) {
@@ -237,12 +235,12 @@ class BaseElementObject extends DataObject
     /**
      * Basic permissions, defaults to page perms where possible.
      *
-     * @param \SilverStripe\Security\Member|null $member
+     * @param Member|null $member
      * @param array $context
      *
-     * @return boolean
+     * @return bool
      */
-    public function canCreate($member = null, $context = array())
+    public function canCreate($member = null, $context = []): bool
     {
         $extended = $this->extendedCan(__FUNCTION__, $member);
         if ($extended !== null) {
