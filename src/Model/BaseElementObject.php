@@ -228,7 +228,7 @@ class BaseElementObject extends DataObject
         }
 
         if ($page = $this->getPage()) {
-            return $page->canArchive($member);
+            return $page->canDelete($member);
         }
 
         return Permission::check('CMS_ACCESS', 'any', $member);
