@@ -24,21 +24,6 @@ a simple base dataobject to use with elements
 
 See [License](LICENSE.md)
 
-## Upgrading from version 2
-
-BaseObject drops `sheadawson/silverstripe-linkable` usage in favor of `gorriecoe/silverstripe-linkfield`. To avoid data loss, install the `dynamic/silverstripe-link-migrator` module as follows:
-
-```markdown
-composer require dynamic/silverstripe-link-migrator
-```
-
-Then, run the task "Linkable to SilverStripe Link Migration" via `/dev/tasks`, or cli via:
-```markdown
-vendor/bin/sake dev/tasks/LinkableMigrationTask
-```
-
-This will populate all of the new Link fields with data from the old class.
-
 ## Usage
 
 `BaseElementObject` is a versioned DataObject that provides a reusable foundation for managing collections of related content within Elemental blocks. It's designed to be extended or used as a `has_many` relationship in custom Element classes.
