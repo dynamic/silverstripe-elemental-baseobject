@@ -3,7 +3,6 @@
 a simple base dataobject to use with elements
 
 [![CI](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml/badge.svg)](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/dynamic/silverstripe-elemental-baseobject/branch/master/graph/badge.svg)](https://codecov.io/gh/dynamic/silverstripe-elemental-baseobject)
 
 [![Latest Stable Version](https://poser.pugx.org/dynamic/silverstripe-elemental-baseobject/v/stable)](https://packagist.org/packages/dynamic/silverstripe-elemental-baseobject)
 [![Total Downloads](https://poser.pugx.org/dynamic/silverstripe-elemental-baseobject/downloads)](https://packagist.org/packages/dynamic/silverstripe-elemental-baseobject)
@@ -12,8 +11,10 @@ a simple base dataobject to use with elements
 
 ## Requirements
 
-* dnadesign/silverstripe-elemental: ^5.0
-* silverstripe/linkfield: ^4.0
+* SilverStripe: ^6.0
+* dnadesign/silverstripe-elemental: ^6.0
+* silverstripe/linkfield: ^5.0
+* PHP: ^8.1
 
 ## Installation
 
@@ -23,31 +24,64 @@ a simple base dataobject to use with elements
 
 See [License](LICENSE.md)
 
-## Upgrading from version 2
-
-BaseObject drops `sheadawson/silverstripe-linkable` usage in favor of `gorriecoe/silverstripe-linkfield`. To avoid data loss, install the `dynamic/silverstripe-link-migrator` module as follows:
-
-```markdown
-composer require dynamic/silverstripe-link-migrator
-```
-
-Then, run the task "Linkable to SilverStripe Link Migration" via `/dev/tasks`, or cli via:
-```markdown
-vendor/bin/sake dev/tasks/LinkableMigrationTask
-```
-
-This will populate all of the new Link fields with data from the old class.
-
 ## Usage
 
-A base DataObject used in the following Elemental content blocks:
+`BaseElementObject` is a versioned DataObject that provides a reusable foundation for managing collections of related content within Elemental blocks. It's designed to be extended or used as a `has_many` relationship in custom Element classes.
 
-* [Accordion](https://github.com/dynamic/silverstripe-elemental-accordion)
-* [Features](https://github.com/dynamic/silverstripe-elemental-features)
-* [Gallery](https://github.com/dynamic/silverstripe-elemental-gallery)
-* [Promos](https://github.com/dynamic/silverstripe-elemental-promos)
-* [Sponsors](https://github.com/dynamic/silverstripe-elemental-sponsors)
-* [Timeline](https://github.com/dynamic/silverstripe-elemental-timeline)
+### Features
+
+The base object includes:
+
+- **Title** - Text field with optional display toggle (using `TextCheckboxGroupField`)
+- **Content** - HTML text area for rich content
+- **Image** - Image upload with automatic organization into `Uploads/Elements/Objects`
+- **Link** - Configurable call-to-action using SilverStripe LinkField
+- **Versioning** - Full draft/publish workflow with GridField extensions
+- **Permissions** - Inherits permissions from the current page context
+
+### Common Usage Pattern
+
+Typically used as a `has_many` relationship in Elemental blocks:
+
+```php
+use Dynamic\BaseObject\Model\BaseElementObject;
+use DNADesign\Elemental\Models\BaseElement;
+
+class ElementAccordion extends BaseElement
+{
+    private static $has_many = [
+        'Items' => BaseElementObject::class,
+    ];
+}
+```
+
+### Extending BaseElementObject
+
+For custom functionality, extend the class:
+
+```php
+use Dynamic\BaseObject\Model\BaseElementObject;
+
+class PromoObject extends BaseElementObject
+{
+    private static $db = [
+        'Subtitle' => 'Varchar(255)',
+    ];
+    
+    private static $table_name = 'PromoObject';
+}
+```
+
+### Used By
+
+This module serves as a dependency for several Dynamic Elemental modules:
+
+* [Accordion](https://github.com/dynamic/silverstripe-elemental-accordion) - Collapsible content panels
+* [Features](https://github.com/dynamic/silverstripe-elemental-features) - Icon-based feature highlights
+* [Gallery](https://github.com/dynamic/silverstripe-elemental-gallery) - Image galleries with captions
+* [Promos](https://github.com/dynamic/silverstripe-elemental-promos) - Promotional content blocks
+* [Sponsors](https://github.com/dynamic/silverstripe-elemental-sponsors) - Sponsor/partner logos
+* [Timeline](https://github.com/dynamic/silverstripe-elemental-timeline) - Event timelines
 
 ## Getting more elements
 

@@ -146,10 +146,12 @@ class BaseElementObject extends DataObject
             $fields->insertBefore('Content', $fields->dataFieldByName('ElementLink'));
 
             $image = $fields->dataFieldByName('Image')
-                ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'))
-                ->setFolderName('Uploads/Elements/Objects');
+                ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'));
+            // @phpstan-ignore-next-line
+            $image->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore('Content', $image);
 
+            // @phpstan-ignore-next-line
             $fields->dataFieldByName('Content')
                 ->setRows(8);
         });
@@ -227,6 +229,7 @@ class BaseElementObject extends DataObject
         }
 
         if ($page = $this->getPage()) {
+            // @phpstan-ignore-next-line
             return $page->canArchive($member);
         }
 
