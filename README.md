@@ -11,10 +11,10 @@ a simple base dataobject to use with elements
 
 ## Requirements
 
-* SilverStripe ^6.0
-* dnadesign/silverstripe-elemental ^6.0
-* silverstripe/linkfield ^5.0
-* PHP ^8.1
+* SilverStripe: ^6.0
+* dnadesign/silverstripe-elemental: ^6.0
+* silverstripe/linkfield: ^5.0
+* PHP: ^8.1
 
 ## Installation
 
