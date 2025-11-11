@@ -16,6 +16,12 @@
             "homepage": "https://www.dynamicagency.com"
         }
     ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/dynamic"
+        }
+    ],
     "require": {
         "dnadesign/silverstripe-elemental": "^6.0",
         "silvershop/silverstripe-hasonefield": "^5.0",
