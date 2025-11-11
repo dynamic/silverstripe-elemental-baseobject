@@ -2,7 +2,7 @@
 
 a simple base dataobject to use with elements
 
-[![CI](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml/badge.svg)](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml)
+[![CI](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml/badge.svg)](https://github.com/dynamic/silverstripe-elemental-baseobject/actions/workflows/ci.yml) [![Sponsors](https://img.shields.io/badge/GitHub-Sponsors-ff69b4?logo=github)](https://github.com/sponsors/dynamic)
 
 [![Latest Stable Version](https://poser.pugx.org/dynamic/silverstripe-elemental-baseobject/v/stable)](https://packagist.org/packages/dynamic/silverstripe-elemental-baseobject)
 [![Total Downloads](https://poser.pugx.org/dynamic/silverstripe-elemental-baseobject/downloads)](https://packagist.org/packages/dynamic/silverstripe-elemental-baseobject)
