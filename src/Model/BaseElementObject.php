@@ -147,11 +147,9 @@ class BaseElementObject extends DataObject
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription(_t(__CLASS__.'.ImageDescription', 'optional. Display an image.'));
-            // @phpstan-ignore-next-line
             $image->setFolderName('Uploads/Elements/Objects');
             $fields->insertBefore('Content', $image);
 
-            // @phpstan-ignore-next-line
             $fields->dataFieldByName('Content')
                 ->setRows(8);
         });

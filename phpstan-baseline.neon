@@ -1,0 +1,67 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method SilverStripe\\Forms\\FormField\:\:setFolderName\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Call to an undefined method SilverStripe\\Forms\\FormField\:\:setRows\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$db is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$default_sort is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$extensions is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$has_one is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$owns is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$searchable_fields is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$summary_fields is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$table_name is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$versioned_gridfield_extensions is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
