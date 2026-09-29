@@ -12,6 +12,7 @@ use SilverStripe\Control\Session;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\LinkField\Models\ExternalLink;
 use SilverStripe\Security\Member;
 
 class BaseElementObjectTest extends SapphireTest
@@ -141,5 +142,53 @@ class BaseElementObjectTest extends SapphireTest
         /** @var Member $member */
         $member = $this->objFromFixture(Member::class, 'default');
         $this->assertFalse($object->canCreate($member));
+    }
+
+    /**
+     * Regression test: duplicating an object must fork its ElementLink instead of
+     * copying the ElementLinkID foreign key, so the copy and the original no longer
+     * share one Link record.
+     */
+    public function testDuplicateForksElementLink()
+    {
+        /** @var ExternalLink $link */
+        $link = ExternalLink::create();
+        $link->ExternalUrl = 'https://example.com/original';
+        $link->write();
+
+        /** @var BaseElementObject $object */
+        $object = Injector::inst()->create(BaseElementObject::class);
+        $object->ElementLinkID = $link->ID;
+        $object->write();
+
+        /** @var BaseElementObject $copy */
+        $copy = $object->duplicate();
+
+        $this->assertNotEquals(0, $copy->ElementLinkID, 'Duplicated object should have its own link');
+        $this->assertNotEquals(
+            $object->ElementLinkID,
+            $copy->ElementLinkID,
+            'Duplicated object must not share the original ElementLink record'
+        );
+        $this->assertEquals(
+            'https://example.com/original',
+            $copy->ElementLink()->ExternalUrl,
+            'The duplicated link should keep the original URL'
+        );
+    }
+
+    /**
+     * Duplicating an object without a link must keep ElementLinkID at zero without error.
+     */
+    public function testDuplicateWithoutElementLink()
+    {
+        /** @var BaseElementObject $object */
+        $object = Injector::inst()->create(BaseElementObject::class);
+        $object->write();
+
+        /** @var BaseElementObject $copy */
+        $copy = $object->duplicate();
+
+        $this->assertEquals(0, $copy->ElementLinkID);
     }
 }

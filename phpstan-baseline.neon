@@ -43,6 +43,12 @@ parameters:
 			path: src/Model/BaseElementObject.php
 
 		-
+			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$cascade_duplicates is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Model/BaseElementObject.php
+
+		-
 			message: '#^Static property Dynamic\\BaseObject\\Model\\BaseElementObject\:\:\$searchable_fields is never read, only written\.$#'
 			identifier: property.onlyWritten
 			count: 1
