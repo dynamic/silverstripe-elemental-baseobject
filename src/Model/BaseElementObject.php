@@ -60,6 +60,20 @@ class BaseElementObject extends DataObject
     );
 
     /**
+     * Duplicating an owner record must fork its ElementLink, otherwise the copy
+     * shares the original's Link row and editing one changes both.
+     *
+     * Note: cascade_deletes is deliberately not set here. Records duplicated
+     * before this fix may still share Link rows, so cascading deletes without a
+     * data repair first would delete links other records still use.
+     *
+     * @var array
+     */
+    private static $cascade_duplicates = array(
+        'ElementLink',
+    );
+
+    /**
      * @var string
      */
     private static $default_sort = 'Title ASC';
