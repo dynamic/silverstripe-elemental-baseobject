@@ -45,6 +45,7 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "phpstan/extension-installer": true,
             "silverstripe/recipe-plugin": true,
             "silverstripe/vendor-plugin": true
         },
